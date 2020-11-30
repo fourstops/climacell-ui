@@ -56,8 +56,8 @@ const formatTime = (time) => {
  * @param str
  * @returns {string}
  */
-const prettyPrintWeatherCode = (str) =>{
-    return str.replace('_', ' ').replace(/\b[a-zA-Z]/g, (first) =>first.toUpperCase());
+const prettyPrintWeatherCode = (str) => {
+    return str.replace('_', ' ').replace(/\b[a-zA-Z]/g, (first) => first.toUpperCase());
 };
 
 export { createUrl, addHours, formatTime, prettyPrintWeatherCode };

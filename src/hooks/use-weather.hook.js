@@ -1,21 +1,21 @@
-import { useFetch } from "./use-fetch.hook";
-import { createUrl } from "../utilities";
+import { useFetch } from './use-fetch.hook';
+import { createUrl } from '../utilities';
 
 /**
- * A react hook that fetches daily forecast for a given location
+ * A react hook that fetches hourly forecast for a given location
  * (<lat>, <lon>) for a time frame (<start>, <end>).
  */
-const usedaily = ({ apikey, lat, lon, start, end }) => {
+const useHourly = ({ apikey, lat, lon, start }) => {
     const url = createUrl({
-        url: 'https://api.climacell.co/v3/weather/forecast/daily',
+        url: 'https://api.climacell.co/v3/weather/forecast/hourly',
         query: {
             apikey:'KkwjvSqyDCLJcQCWMnYKnOtd0CccROKu',
-               lat:'39.309',
+            lat:'39.309',
             lon:'-76.626',
             unit_system: 'us',
             fields: 'precipitation,temp,feels_like,weather_code',
             start_time: start.toISOString(),
-            end_time: end.toISOString()
+            //end_time: end.toISOString()
         }
     });
 
@@ -41,20 +41,4 @@ const useRealtime = ({ apikey, lat, lon }) => {
     return useFetch({ url });
 };
 
-const useDaily = ({ apikey, lat, lon }) => {
-    const url = createUrl({
-        url: 'https://api.climacell.co/v3/weather/forecast/daily',
-        query: {
-            apikey:'KkwjvSqyDCLJcQCWMnYKnOtd0CccROKu',
-            lat:'39.309',
-            lon:'-76.626',
-            unit_system: 'us',
-            fields: 'precipitation,temp,feels_like,weather_code',
-            start_time: 'now'
-        }
-    });
-
-    return useFetch({ url });
-};
-
-export { usedaily, useRealtime, useDaily };
+export { useHourly, useRealtime };
