@@ -41,4 +41,20 @@ const useRealtime = ({ apikey, lat, lon }) => {
     return useFetch({ url });
 };
 
-export { useHourly, useRealtime };
+const useDaily = ({ apikey, lat, lon }) => {
+    const url = createUrl({
+        url: 'https://api.climacell.co/v3/weather/forecast/daily',
+        query: {
+            apikey:'KkwjvSqyDCLJcQCWMnYKnOtd0CccROKu',
+            lat:'39.309',
+            lon:'-76.626',
+            unit_system: 'us',
+            fields: 'precipitation,temp,feels_like,weather_code',
+            start_time: 'now'
+        }
+    });
+
+    return useFetch({ url });
+};
+
+export { useHourly, useRealtime, useDaily };
