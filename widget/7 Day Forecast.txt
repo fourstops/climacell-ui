@@ -1,0 +1,2 @@
+<script type="text/javascript" src="https://widgets-viewer.climacell.co/v1/sdk.js"></script>
+<div class="climacell-widget" data-apikey="KkwjvSqyDCLJcQCWMnYKnOtd0CccROKu" data-type="daily" data-location-name="1623 Park Avenue, Baltimore, MD, USA" data-location-lon="-76.62635999999999" data-location-lat="39.30932799999999" data-size-mode="large" data-font-color="#000000" data-background-color="#ffffff" data-font-family="arial" data-weather-params="temp:F,precipitation:in/hr,humidity:%" ></div>
