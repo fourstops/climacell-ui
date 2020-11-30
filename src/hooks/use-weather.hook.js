@@ -2,12 +2,12 @@ import { useFetch } from "./use-fetch.hook";
 import { createUrl } from "../utilities";
 
 /**
- * A react hook that fetches hourly forecast for a given location
+ * A react hook that fetches daily forecast for a given location
  * (<lat>, <lon>) for a time frame (<start>, <end>).
  */
-const useHourly = ({ apikey, lat, lon, start, end }) => {
+const usedaily = ({ apikey, lat, lon, start, end }) => {
     const url = createUrl({
-        url: 'https://api.climacell.co/v3/weather/forecast/hourly',
+        url: 'https://api.climacell.co/v3/weather/forecast/daily',
         query: {
             apikey:'KkwjvSqyDCLJcQCWMnYKnOtd0CccROKu',
                lat:'39.309',
@@ -57,4 +57,4 @@ const useDaily = ({ apikey, lat, lon }) => {
     return useFetch({ url });
 };
 
-export { useHourly, useRealtime, useDaily };
+export { usedaily, useRealtime, useDaily };

@@ -1,13 +1,13 @@
 import React from 'react';
-import './hourly.component.css';
+import './daily.component.css';
 import { formatTime } from "../utilities";
 import { Temp } from "./temp.component";
 import { WeatherIcon } from "./weather-icon.component";
 
-function Hourly({ hourly }) {
+function daily({ daily }) {
     return (
-        <div className="hourly">
-            {hourly.map(hour => (
+        <div className="daily">
+            {daily.map(hour => (
                 <div className="hour">
                     <div className="hour-time">{formatTime(hour.observation_time.value)}</div>
                     <div className="hour-icon"><WeatherIcon value={hour.weather_code.value} /></div>
@@ -18,4 +18,4 @@ function Hourly({ hourly }) {
     );
 }
 
-export { Hourly };
+export { daily };

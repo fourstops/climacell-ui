@@ -1,8 +1,8 @@
 import React from 'react';
 import './app.component.css';
 import { Realtime } from "./realtime.component";
-import { Hourly } from "./hourly.component";
-import { useHourly, useRealtime } from "../hooks/use-weather.hook";
+import { daily } from "./daily.component";
+import { usedaily, useRealtime } from "../hooks/use-weather.hook";
 import ClimacellIcon from '../icons/climacell-icon-colored.svg';
 import PinIcon from '../icons/pin.svg';
 import { addHours } from "../utilities";
@@ -35,15 +35,15 @@ function App({ apikey, lat, lon, location }) {
     const [realtimeResponse, loadingRealtime, realtimeHasError] = useRealtime({
         apikey, lat, lon
     });
-    const [hourlyResponse, loadingHourly, hourlyHasError] = useHourly({
+    const [dailyResponse, loadingdaily, dailyHasError] = usedaily({
         apikey, lat, lon, start: now, end: sixHoursFromNow
     });
 
-    if (loadingRealtime || loadingHourly) {
+    if (loadingRealtime || loadingdaily) {
         return <Loading />;
     }
 
-    if (realtimeHasError || hourlyHasError) {
+    if (realtimeHasError || dailyHasError) {
         return <Error />;
     }
 
@@ -60,7 +60,7 @@ function App({ apikey, lat, lon, location }) {
             </div>
             <Realtime realtime={realtimeResponse} />
             <div className="divider" />
-            <Hourly hourly={hourlyResponse} />
+            <daily daily={dailyResponse} />
         </div>
     );
 }
